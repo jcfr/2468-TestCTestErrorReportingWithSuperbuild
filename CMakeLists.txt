@@ -5,7 +5,7 @@ project(TestCTestErrorReportingWithSuperbuild)
 #-----------------------------------------------------------------------------
 # Testing
 #-----------------------------------------------------------------------------
-# NOTE: For CTEST_USE_LAUNCHER to work, it's required to include CTest at the superbuild level.
+# NOTE: For CTEST_USE_LAUNCHERS to work, it's required to include CTest at the superbuild level.
 #       See http://www.kitware.com/blog/home/post/11
 
 set_property(GLOBAL PROPERTY CTEST_TARGETS_ADDED 1) # Do not add CTest default targets
@@ -33,7 +33,7 @@ if(SUPERBUILD)
     CMAKE_GENERATOR ${gen}
     UPDATE_COMMAND ""
     #CMAKE_ARGS
-    #  -DCTEST_USE_LAUNCHER:BOOL=ON
+    #  -DCTEST_USE_LAUNCHERS:BOOL=ON
     INSTALL_COMMAND ""
     )
   
@@ -44,7 +44,7 @@ if(SUPERBUILD)
     CMAKE_GENERATOR ${gen}
     UPDATE_COMMAND ""
     #CMAKE_ARGS
-    #  -DCTEST_USE_LAUNCHER:BOOL=ON
+    #  -DCTEST_USE_LAUNCHERS:BOOL=ON
     INSTALL_COMMAND ""
     )
   
@@ -57,7 +57,7 @@ if(SUPERBUILD)
     UPDATE_COMMAND ""
     CMAKE_ARGS
       -DSUPERBUILD:BOOL=OFF
-    #  -DCTEST_USE_LAUNCHER:BOOL=ON
+    #  -DCTEST_USE_LAUNCHERS:BOOL=ON
     INSTALL_COMMAND ""
     )
   

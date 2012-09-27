@@ -5,8 +5,8 @@ set(CTEST_SOURCE_DIRECTORY "/tmp/2468-TestCTestErrorReportingWithSuperbuild")
 set(CTEST_BINARY_DIRECTORY "/tmp/2468-TestCTestErrorReportingWithSuperbuild-build")
 
 set(CTEST_SITE "karakoram.kitware.com")
-set(CTEST_BUILD_NAME "2468-TestCTestErrorReportingWithSuperbuild-WithoutCTestUseLauncher")
-#set(CTEST_BUILD_NAME "2468-TestCTestErrorReportingWithSuperbuild-WithCTestUseLauncherAtTopLevel-UnpatchedCTest")
+#set(CTEST_BUILD_NAME "2468-TestCTestErrorReportingWithSuperbuild-WithoutCTestUseLauncher")
+set(CTEST_BUILD_NAME "2468-TestCTestErrorReportingWithSuperbuild-WithCTestUseLauncherAtTopLevel-UnpatchedCTest")
 #set(CTEST_BUILD_NAME "2468-TestCTestErrorReportingWithSuperbuild-WithCTestUseLauncherInSubProject-PatchedCTest")
 set(CTEST_CMAKE_GENERATOR "Unix Makefiles")
 set(CTEST_BUILD_FLAGS "-j4") # Use multiple CPU cores to build. For example "-j4" on unix
@@ -26,7 +26,7 @@ set(CTEST_UPDATE_COMMAND "${CTEST_GIT_COMMAND}")
 # For more details, see http://www.kitware.com/blog/home/post/11
 set(CTEST_USE_LAUNCHERS 0)
 if(CTEST_CMAKE_GENERATOR MATCHES ".*Makefiles.*")
-#  set(CTEST_USE_LAUNCHERS 1)
+  set(CTEST_USE_LAUNCHERS 1)
 endif()
 
 
@@ -39,7 +39,7 @@ ctest_submit(PARTS Update)
 #-----------------------------------------------------------------------------
 ctest_configure(
   BUILD "${CTEST_BINARY_DIRECTORY}"
-  #OPTIONS "-DCTEST_USE_LAUNCHERS=${CTEST_USE_LAUNCHERS}"
+  OPTIONS "-DCTEST_USE_LAUNCHERS=${CTEST_USE_LAUNCHERS}"
   )
 ctest_read_custom_files("${CTEST_BINARY_DIRECTORY}")
 ctest_submit(PARTS Configure)
