@@ -9,8 +9,8 @@ project(TestCTestErrorReportingWithSuperbuild)
 #       See http://www.kitware.com/blog/home/post/11
 
 set_property(GLOBAL PROPERTY CTEST_TARGETS_ADDED 1) # Do not add CTest default targets
-include(CTest)
-#include(${CMAKE_CURRENT_SOURCE_DIR}/PatchedCTest.cmake)
+#include(CTest)
+include(${CMAKE_CURRENT_SOURCE_DIR}/PatchedCTest.cmake)
 
 #-----------------------------------------------------------------------------
 # Superbuild
@@ -32,8 +32,8 @@ if(SUPERBUILD)
     BINARY_DIR A-build
     CMAKE_GENERATOR ${gen}
     UPDATE_COMMAND ""
-    #CMAKE_ARGS
-    #  -DCTEST_USE_LAUNCHERS:BOOL=ON
+    CMAKE_ARGS
+      -DCTEST_USE_LAUNCHERS:BOOL=ON
     INSTALL_COMMAND ""
     )
   
@@ -43,8 +43,8 @@ if(SUPERBUILD)
     BINARY_DIR B-build
     CMAKE_GENERATOR ${gen}
     UPDATE_COMMAND ""
-    #CMAKE_ARGS
-    #  -DCTEST_USE_LAUNCHERS:BOOL=ON
+    CMAKE_ARGS
+      -DCTEST_USE_LAUNCHERS:BOOL=ON
     INSTALL_COMMAND ""
     )
   
@@ -57,7 +57,7 @@ if(SUPERBUILD)
     UPDATE_COMMAND ""
     CMAKE_ARGS
       -DSUPERBUILD:BOOL=OFF
-    #  -DCTEST_USE_LAUNCHERS:BOOL=ON
+      -DCTEST_USE_LAUNCHERS:BOOL=ON
     INSTALL_COMMAND ""
     )
   
