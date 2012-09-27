@@ -47,9 +47,20 @@ if(SUPERBUILD)
       -DCTEST_USE_LAUNCHERS:BOOL=ON
     INSTALL_COMMAND ""
     )
+    
+  ExternalProject_Add(C
+    URL "http://thisshouldntexist.nop/foo.tgz"
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/C
+    BINARY_DIR C-build
+    CMAKE_GENERATOR ${gen}
+    UPDATE_COMMAND ""
+    CMAKE_ARGS
+      -DCTEST_USE_LAUNCHERS:BOOL=ON
+    INSTALL_COMMAND ""
+    )
   
   ExternalProject_Add(Foo
-    DEPENDS A B
+    DEPENDS A B C
     DOWNLOAD_COMMAND ""
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}
     BINARY_DIR Foo-build
