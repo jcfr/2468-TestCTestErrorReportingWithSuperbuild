@@ -37,8 +37,8 @@ endif()
 #-----------------------------------------------------------------------------
 ctest_start("Experimental")
 
-ctest_update()
-ctest_submit(PARTS Update)
+#ctest_update()
+#ctest_submit(PARTS Update)
 
 #-----------------------------------------------------------------------------
 ctest_configure(
