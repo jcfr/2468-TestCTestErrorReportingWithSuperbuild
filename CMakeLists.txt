@@ -79,6 +79,7 @@ endif()
 # Inner project
 #-----------------------------------------------------------------------------
 include_directories(
+  ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}/A
   ${CMAKE_CURRENT_SOURCE_DIR}/B
   )
@@ -86,8 +87,12 @@ include_directories(
 include(${CMAKE_CURRENT_BINARY_DIR}/../A-build/ATargets.cmake)
 include(${CMAKE_CURRENT_BINARY_DIR}/../B-build/BTargets.cmake)
 
+add_library(Bar Bar.cxx Bar.h)
+
+add_library(Iton Iton.cxx Iton.h)
+
 add_executable(Foo Foo.cxx)
-target_link_libraries(Foo A B)
+target_link_libraries(Foo A B Bar Iton)
 
 # Testing
 add_test(NAME RunFooTest COMMAND $<TARGET_FILE:Foo>)
