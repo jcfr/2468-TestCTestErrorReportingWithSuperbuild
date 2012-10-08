@@ -28,10 +28,8 @@ endif()
 set(CTEST_UPDATE_COMMAND "${CTEST_GIT_COMMAND}")
 
 # For more details, see http://www.kitware.com/blog/home/post/11
-set(CTEST_USE_LAUNCHERS 0)
-if(CTEST_CMAKE_GENERATOR MATCHES ".*Makefiles.*")
-  set(CTEST_USE_LAUNCHERS 1)
-endif()
+set(CTEST_USE_LAUNCHERS 1)
+set(ENV{CTEST_USE_LAUNCHERS_DEFAULT} ${CTEST_USE_LAUNCHERS})
 
 
 #-----------------------------------------------------------------------------
