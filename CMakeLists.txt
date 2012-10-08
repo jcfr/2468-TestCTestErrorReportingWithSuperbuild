@@ -92,7 +92,7 @@ add_library(Bar Bar.cxx Bar.h)
 add_library(Iton Iton.cxx Iton.h)
 
 add_executable(Foo Foo.cxx)
-target_link_libraries(Foo A B Bar Iton)
+target_link_libraries(Foo A1 A2 B Bar Iton)
 
 # Testing
 add_test(NAME RunFooTest COMMAND $<TARGET_FILE:Foo>)

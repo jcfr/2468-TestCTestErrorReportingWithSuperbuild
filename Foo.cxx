@@ -1,6 +1,7 @@
 
 
-#include "A.h"
+#include "A1.h"
+#include "A2.h"
 #include "B.h"
 #include "Bar.h"
 #include "Iton.h"
@@ -11,8 +12,10 @@
 
 int main(int argc, char* argv[])
 {
-  A a;
-  a.whoami();
+  A1 a1;
+  a1.whoami();
+  A2 a2;
+  a2.whoami();
   B b;
   b.whoami();
   Bar bar;
